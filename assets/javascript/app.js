@@ -1,3 +1,27 @@
+<body>
+
+<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
+
+https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBxS26xgOho5G_1W-Cc9Rwx6cmr5gNfcA0",
+    authDomain: "a-new-project-a5553.firebaseapp.com",
+    databaseURL: "https://a-new-project-a5553.firebaseio.com",
+    projectId: "a-new-project-a5553",
+    storageBucket: "a-new-project-a5553.appspot.com",
+    messagingSenderId: "582759574527",
+    appId: "1:582759574527:web:4a5e53e17b3e6fcb8515ca",
+    measurementId: "G-KT0DPHG31D"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+
 var settings1 = {
 	"async": true,
 	"crossDomain": true,
@@ -48,4 +72,6 @@ var settings3 = {
 $.ajax(settings).done(function (response) {
 	console.log(response);
 });
+
+</body>
 
