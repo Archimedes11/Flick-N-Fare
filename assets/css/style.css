@@ -1,0 +1,37 @@
+.jumbotron {
+    margin-bottom: 0px;
+}
+.col-sm-4 {
+    padding-left: 0px ;
+}
+#movieCard {
+    border-style: none;
+}
+.movie {
+    margin: 0px;
+    padding: 0px;
+}
+.fare {
+    margin: 0px;
+    padding: 0px;
+}
+#fareCard {
+    border-style: none;
+}
+#movieHistory {
+    border-style: none;
+}
+.movieHistoryCard {
+    margin: 0px;
+    padding: 0px;
+}
+.fareHistoryCard {
+    margin: 0px;
+    padding: 0px;
+}
+#fareHistory {
+    border-style: none;
+}
+.movieList {
+    padding: 0px 0px 0px 0px;
+}

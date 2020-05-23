@@ -1,8 +1,5 @@
-
-
-
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
+// Your web app's Firebase configuration
+var firebaseConfig = {
     apiKey: "AIzaSyBxS26xgOho5G_1W-Cc9Rwx6cmr5gNfcA0",
     authDomain: "a-new-project-a5553.firebaseapp.com",
     databaseURL: "https://a-new-project-a5553.firebaseio.com",
@@ -68,3 +65,9 @@ $.ajax(settings).done(function (response) {
 	console.log(response);
 });
 
+
+//test loop
+
+for (i = 0; i < 5; i++) {
+    console.log(i);
+  }
