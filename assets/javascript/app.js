@@ -68,3 +68,10 @@ $.ajax(settings).done(function (response) {
 	console.log(response);
 });
 
+
+//test loop
+
+for (i = 0; i < 5; i++) {
+    console.log(i);
+  }
+
