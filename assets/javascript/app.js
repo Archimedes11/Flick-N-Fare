@@ -1,3 +1,5 @@
+
+
 <body>
 
 <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
@@ -74,4 +76,3 @@ $.ajax(settings).done(function (response) {
 });
 
 </body>
-
