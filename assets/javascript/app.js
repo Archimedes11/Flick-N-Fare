@@ -70,4 +70,8 @@ $.ajax(settings).done(function (response) {
 
 for (i = 0; i < 5; i++) {
     console.log(i);
+ HEAD
   }
+
+
+
