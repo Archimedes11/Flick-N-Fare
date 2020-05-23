@@ -1,13 +1,6 @@
 
 
-<body>
 
-<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
-
-https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"></script>
-
-<script>
   // Your web app's Firebase configuration
   var firebaseConfig = {
     apiKey: "AIzaSyBxS26xgOho5G_1W-Cc9Rwx6cmr5gNfcA0",
@@ -22,8 +15,8 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
-</script>
 
+  //Recipe Search
 var settings1 = {
 	"async": true,
 	"crossDomain": true,
@@ -38,7 +31,7 @@ var settings1 = {
 $.ajax(settings).done(function (response) {
 	console.log(response);
 });
-
+	//Get Similar Recipes
 var settings2 = {
 	"async": true,
 	"crossDomain": true,
@@ -53,7 +46,7 @@ var settings2 = {
 $.ajax(settings).done(function (response) {
 	console.log(response);
 });
-
+	//Get Recipe Nutrition by ID
 var settings3 = {
 	"async": true,
 	"crossDomain": true,
@@ -75,4 +68,3 @@ $.ajax(settings).done(function (response) {
 	console.log(response);
 });
 
-</body>
