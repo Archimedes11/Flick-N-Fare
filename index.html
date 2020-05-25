@@ -39,10 +39,13 @@
                   <form>
                   <select class="form-control">
                     <option value="one">Movie Genre</option>
-                    <option value="two">Two</option>
-                    <option value="three">Three</option>
-                    <option value="four">Four</option>
-                    <option value="five">Five</option>
+                    <option value="action">Action</option>
+                    <option value="comedy">Comedy</option>
+                    <option value="documentary">Documentary</option>
+                    <option value="drama">Drama</option>
+                    <option value="family">Family</option>
+                    <option value="horror">Horror</option>
+                    <option value="scifi">Science Fiction</option>
                 </select>
                 </div>
                 <!-- Fare Search -->
@@ -73,20 +76,12 @@
         <div class="col-md-6 movie">
           <div class="card" style="width: auto;" id="movieCard">
             <div class="card-body">
-              <img src="assets/images/movie.jpg" class="card-img" id="moviePoster">
+              <img class="card-img" id="moviePoster">
               <p class="card-text">
-                <h4 id="title">MOVIE TITLE HERE COOL GUY MOVIE!</h4>
+                <h4 id="title"></h4>
                 <ul class="card-text movieList" style="list-style-type:none;">
-                  <li id="rating">MOVIE RATING HERE PG!</li>
-                  <li id="releaseDate">MOVIE RELEASE DATE HERE 5 STARS!</li>
-                  <li id="synopsis">MOVIE SYNOPSIS HERE! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit
-                    sit libero eum nesciunt ipsum natus quas nulla ab velit blanditiis animi temporibus facere, porro
-                    provident vitae voluptates iste eveniet dolore. Lorem ipsum dolor sit amet consectetur adipisicing
-                    elit. Blanditiis eos harum sunt, perspiciatis, libero corrupti neque, iure quaerat maxime minus est
-                    rem excepturi placeat impedit fugiat labore vitae dolores amet. Lorem ipsum dolor sit amet
-                    consectetur, adipisicing elit. Pariatur dolorem cumque ex explicabo? Magnam neque perferendis
-                    repellat repudiandae atque delectus ipsum nihil voluptatem, nostrum aliquam inventore nulla modi
-                    assumenda quis?</li>
+                  <li id="releaseDate"></li>
+                  <li id="synopsis"></li>
                 </ul>
               </p>
             </div>
@@ -139,12 +134,17 @@
     
 
   <!-- Footer -->
-<footer class="footer">
-  <div class="footer-copyright  text-center ">© 2020 Copyright</div>
-</footer>
+    <footer class="footer">
+        <div class="footer-copyright  text-center ">© 2020 Copyright</div>
+    </footer>
 
 
   <!-- JavaScript, JQuery, Popper, Bootstrap.js -->
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.js" 
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" 
+  crossorigin="anonymous">
+  </script>
   <!-- Our JavaScript -->
   <script src="assets/javascript/app.js"></script>
   <!-- Bootstrap JQuery -->
@@ -157,8 +157,9 @@
     crossorigin="anonymous"></script>
   <!-- Bootstrap JavaScript -->
   <script src="assets/bootstrap-4.5.0-dist/js/bootstrap.min.js"></script>
+  
 
-<!-- The core Firebase JS SDK is always required and must be listed first -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
