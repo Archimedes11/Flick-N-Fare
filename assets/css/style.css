@@ -39,3 +39,32 @@
 
 
 
+
+
+body{
+    background-image: url("../images/BackgroundFive.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+/* .row,
+.historyInfo,
+.fareHistoryCard, */
+.card,
+.card-body{
+    background-color: rgba(255,255,255,.1);
+}
+
+.adam{
+    background-color: lightcoral;
+}
+
+.historyInfo{
+    background-color: lightcoral;
+}
+
+
+
+
