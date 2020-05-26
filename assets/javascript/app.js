@@ -75,28 +75,28 @@ var drama = 18;
 var family = 10751;
 var horror = 27;
 var scifi = 878;
-var genre;
+var genre = 0;
 
 function pickGenre() {
-  if ($(this).attr("value") === "action") {
+  if ($("#select").val() === "action") {
     genre = action;
   }
-  if ($(this).attr("value") === "comedy") {
+  if ($("#select").val() === "comedy") {
     genre = comedy;
   }
-  if ($(this).attr("value") === "documentary") {
+  if ($("#select").val() === "documentary") {
     genre = documentary;
   }
-  if ($(this).attr("value") === "drama") {
+  if ($("#select").val() === "drama") {
     genre = drama;
   }
-  if ($(this).attr("value") === "family") {
+  if ($("#select").val() === "family") {
     genre = family;
   }
-  if ($(this).attr("value") === "horror") {
+  if ($("#select").val() === "horror") {
     genre = horror;
   }
-  if ($(this).attr("value") === "scifi") {
+  if ($("#select").val() === "scifi") {
     genre = scifi;
   }
 }
@@ -105,7 +105,7 @@ function movieSearch() {
   //var genre = $(this).attr("value");
   pickGenre();
   var queryURL =
-    "https://api.themoviedb.org/3/discover/movie?api_key=ff46f8ea1d82a3eb64afbd0bbaf6cef5&with_genres=" +
+    "https://api.themoviedb.org/3/discover/movie?api_key=ff46f8ea1d82a3eb64afbd0bbaf6cef5&include_adult=false&with_genres=" +
     genre;
   console.log(genre);
 
