@@ -105,7 +105,7 @@ function movieSearch() {
   //var genre = $(this).attr("value");
   pickGenre();
   var queryURL =
-    "https://api.themoviedb.org/3/discover/movie?api_key=ff46f8ea1d82a3eb64afbd0bbaf6cef5&with_genres=" +
+    "https://api.themoviedb.org/3/discover/movie?api_key=ff46f8ea1d82a3eb64afbd0bbaf6cef5&include_adult=false&with_genres=" +
     genre;
   console.log(genre);
 
