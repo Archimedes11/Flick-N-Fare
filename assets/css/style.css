@@ -1,3 +1,8 @@
+@font-face {
+    font-family: apples;
+    src: url(../Fonts/apples.ttf);
+  }
+
 .jumbotron {
     margin-bottom: 0px; 
 }
@@ -20,6 +25,7 @@
 }
 #movieHistory {
     border-style: none;
+    text-align: center;
 }
 .movieHistoryCard {
     margin: 0px;
@@ -31,38 +37,46 @@
 }
 #fareHistory {
     border-style: none;
+    text-align: center;
 }
 .movieList {
     padding: 0px 0px 0px 0px;
 }
 
 
-
+/* Adam's CSS */
 
 
 
 body{
-    background-image: url("../images/BackgroundFive.jpg");
+    background-image: url("../images/Coffee.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 
-
-/* .row,
-.historyInfo,
-.fareHistoryCard, */
 .card,
 .card-body{
     background-color: rgba(255,255,255,.1);
 }
+.mainHeader{
+    font-family: apples;
+    font-size: 3.5rem;
+    font-weight: bolder;
+    text-align: center;
+   
+}
 
-.adam{
+.secondaryHeader{
     background-color: lightcoral;
 }
 
 .historyInfo{
     background-color: lightcoral;
+}
+
+h1{
+    font-size: 4rem;
 }
 
 
