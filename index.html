@@ -1,11 +1,9 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
   <!-- CSS -->
   <!-- Bootstrap Grid CSS -->
   <link rel="stylesheet" href="assets/bootstrap-4.5.0-dist/css/bootstrap-grid.min.css">
@@ -13,20 +11,18 @@
   <link rel="stylesheet" href="assets/bootstrap-4.5.0-dist/css/bootstrap.min.css">
   <!--  Our CSS File -->
   <link rel="stylesheet" href="assets/css/style.css">
-
   <title>Flick-n-Fare</title>
 </head>
-
 <body>
   <!-- Navbar -->
-  <nav class="navbar navbar-light bg-light">
-    <span class="navbar-brand mb-0 h1">Flick-n-Fare</span>
+  <nav class="navbar navbar-light bg-light ">
+    <span class="navbar-brand mb-0 h1 mainHeader"><h1>Flick-n-Fare</h1></span>
   </nav>
   <!-- Jumbotron -->
   <div class="topJumbo">
     <div class="row">
       <div class="col-sm-12">
-        <div class="jumbotron jumbotron-fluid">
+        <div class="jumbotron jumbotron-fluid secondaryHeader">
           <div class="container">
             <h1 class="display-4">Flick-n-Fare</h1>
             <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt provident eum, illo quam
@@ -58,7 +54,8 @@
                     <option value="Indian">Indian</option>
                     <option value="Vegan">Vegan</option>
                     <option value="Cajun">Cajun</option>
-                    <option value="Mediterrean">Mediterrean</option>
+                    <option value="Greek">Greek</option>
+                    <option value="GlutenFree">Gluten Free</option>
                 </select>
                 </div>
                 <!-- Result Button -->
@@ -94,16 +91,10 @@
         <div class="col-md-6 fare">
           <div class="card fareDisplay" style="width: auto;" id="fareCard">
             <div class="card-body">
-              <img src="assets/images/food.jpg" class="card-img" id="farePic">
+              <img class="card-img" id="farePic">
               <p class="card-text">
-                <h4 id="recipeTitle">RECIPE TITLE HERE! </h4>
-                <p id="recipe">RECIPE HERE! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit sit libero
-                  eum nesciunt ipsum natus quas nulla ab velit blanditiis animi temporibus facere, porro provident vitae
-                  voluptates iste eveniet dolore. Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis
-                  eos harum sunt, perspiciatis, libero corrupti neque, iure quaerat maxime minus est rem excepturi
-                  placeat impedit fugiat labore vitae dolores amet. Lorem ipsum dolor sit amet consectetur, adipisicing
-                  elit. Pariatur dolorem cumque ex explicabo? Magnam neque perferendis repellat repudiandae atque
-                  delectus ipsum nihil voluptatem, nostrum aliquam inventore nulla modi assumenda quis?</p>
+                <h4 id="recipeTitle"></h4>
+                <p id="recipe"></p>
               </p>
             </div>
           </div>
@@ -117,8 +108,8 @@
         <div class="col-md-6 movieHistoryCard">
           <div class="card" style="width: auto;" id="movieHistory">
             <div class="card-body">
-              <p class="card-text" id="movieHistoryText">
-                <h2>MOVIE HISTORY HERE!</h2>
+              <p class="card-text">
+                <h2 id="movieHistoryText">Movie History</h2>
               </p>
             </div>
           </div>
@@ -129,126 +120,15 @@
             <div class="card-body">
               <p class="card-text" id="fareHistoryText">
                 <h2>FOOD HISTORY HERE!</h2>
-
-
-          <!-- Movie Dropdown Button -->
-          <div class="container-fluid">
-          <div class="row">
-              <div class="col-4 col-sm-4">
-                <div class="dropdown">
-                  <button class="btn btn-secondary dropdown-toggle" type="button" id="movie dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Movie
-                  </button>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </div>
-                </div>
-              </div>
-              <!-- Fare Dropdown Button -->
-              <div class="col-4 col-sm-4">
-                <div class="dropdown">
-                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dinner dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dinner
-                  </button>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </div>
-                </div>
-              </div>
-              <!-- Result Button -->
-              <div class="col-4 col-sm-4">
-              <button type="button" class="btn btn-secondary" id="result">Result</button>
-            </div>
-          </div>
-       </div>
-      </div>
-     </div>
-   </div>
-  </div>
-  <!-- Result Info -->
-   <div class="displayInfo">
-     <div class="row">
-       <!-- Movie Info -->
-       <div class="col-md-6 movie">
-        <div class="card" style="width: auto;" id="movieCard">
-          <div class="card-body">
-           <img src="assets/images/movie.jpg" class="card-img" id="moviePoster">
-            <p class="card-text">
-              <h4 id="title">MOVIE TITLE HERE COOL GUY MOVIE!</h4>
-              <ul class="card-text movieList" style="list-style-type:none;">
-                <li id="rating">MOVIE RATING HERE PG!</li>
-                <li id="releaseDate">MOVIE RELEASE DATE HERE 5 STARS!</li>
-                <li id="synopsis">MOVIE SYNOPSIS HERE! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit sit libero eum nesciunt ipsum natus quas nulla ab velit blanditiis animi temporibus facere, porro provident vitae voluptates iste eveniet dolore. Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis eos harum sunt, perspiciatis, libero corrupti neque, iure quaerat maxime minus est rem excepturi placeat impedit fugiat labore vitae dolores amet. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur dolorem cumque ex explicabo? Magnam neque perferendis repellat repudiandae atque delectus ipsum nihil voluptatem, nostrum aliquam inventore nulla modi assumenda quis?</li>
-              </ul>
-            </p>
-          </div>
-        </div>
-       </div>
-       <!-- Fare Info -->
-        <div class="col-md-6 fare">
-          <div class="card fareDisplay" style="width: auto;" id="fareCard">
-            <div class="card-body">
-             <img src="assets/images/food.jpg" class="card-img" id="farePic">
-             <p class="card-text">
-               <h4 id="recipeTitle">RECIPE TITLE HERE! </h4>
-                <p id="recipe">RECIPE HERE! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit sit libero eum nesciunt ipsum natus quas nulla ab velit blanditiis animi temporibus facere, porro provident vitae voluptates iste eveniet dolore. Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis eos harum sunt, perspiciatis, libero corrupti neque, iure quaerat maxime minus est rem excepturi placeat impedit fugiat labore vitae dolores amet. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur dolorem cumque ex explicabo? Magnam neque perferendis repellat repudiandae atque delectus ipsum nihil voluptatem, nostrum aliquam inventore nulla modi assumenda quis?</p>
-
-              </p>
-            </div>
-          </div>
-        </div>
-
-  
-
-
-
-
-      </div >
-   </div>
-   <!-- History -->
-   <div class="historyInfo">
-    <div class="row">
-      <!-- Movie History -->
-      <div class="col-md-6 movieHistoryCard">
-       <div class="card" style="width: auto;" id="movieHistory">
-         <div class="card-body">
-           <p class="card-text" id="movieHistoryText">
-           <h2>MOVIE HISTORY HERE!</h2>
-           </p>
-         </div>
-       </div>
-      </div>
-      <!-- Fare History -->
-       <div class="col-md-6 fareHistoryCard">
-         <div class="card" style="width: auto;" id="fareHistory">
-           <div class="card-body">
-             <p class="card-text" id="fareHistoryText">
-               <h2>FOOD HISTORY HERE!</h2>
-             </p>
-           </div>
-         </div>
-       </div>
-     </div >
-  </div>
-
                 </p>
             </div>
           </div>
         </div>
     </div>
-    
-
-
   <!-- Footer -->
     <footer class="footer">
         <div class="footer-copyright  text-center ">© 2020 Copyright</div>
     </footer>
-
-
 <!-- JavaScript, JQuery, Popper, Bootstrap.js -->
   <!-- JQuery -->
   <script src="https://code.jquery.com/jquery-3.5.1.js" 
@@ -263,12 +143,5 @@
     crossorigin="anonymous"></script>
   <!-- Bootstrap JavaScript -->
   <script src="assets/bootstrap-4.5.0-dist/js/bootstrap.min.js"></script>
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
-  <!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"></script>
-  
 </body>
-
 </html>
