@@ -1,6 +1,5 @@
 var randomId = 0;
 function fareSearch() {
-  //var fare = $(this).attr("value");
   pickFare();
   var settings1 = {
     url:
@@ -14,22 +13,10 @@ function fareSearch() {
     headers: {},
   };
   $.ajax(settings1).then(function (response) {
-    //console.log(response);
     $("#farePic").attr("src", response.image);
     $("#recipeTitle").text(response.title);
     $("#recipe").html(response.summary);
-    // for (var l = 0; l < response.length; l++) {
-    //   var result = response[l];
-
-    //   $("#farePic").attr(
-    //     "src",
-    //     "https://spoonacular.com/recipeImages/" + result.image
-    //   );
-    //   $("#recipeTitle").text(result.title);
-    //   $("#recipe").text(result.summary);
-    //}
     function getFare() {
-      //console.log(response.results.title);
       $("#recipeTitle").attr("src", "url(" + response + ")");
     }
     getFare();
@@ -94,13 +81,6 @@ function pickFare() {
     fare = GlutenFree;
   }
 }
-//function fareSearch() {
-//var fare = $(this).attr("value");
-// pickFare();
-// settings1;
-
-//console.log(fare);
-
 var movieArray = [];
 var action = 28;
 var comedy = 35;
@@ -110,7 +90,6 @@ var family = 10751;
 var horror = 27;
 var scifi = 878;
 var genre = 0;
-
 function pickGenre() {
   if ($("#select").val() === "action") {
     genre = action;
@@ -134,7 +113,6 @@ function pickGenre() {
     genre = scifi;
   }
 }
-
 function movieSearch() {
   //var genre = $(this).attr("value");
   pickGenre();
@@ -142,7 +120,6 @@ function movieSearch() {
     "https://api.themoviedb.org/3/discover/movie?api_key=ff46f8ea1d82a3eb64afbd0bbaf6cef5&include_adult=false&with_genres=" +
     genre;
   console.log(genre);
-
   $.ajax({
     url: queryURL,
     method: "GET",
@@ -174,7 +151,6 @@ function movieSearch() {
     getMovie();
   });
 }
-
 var movieHistory = $("<p>");
 movieHistory.css({
   color: "blue",
@@ -182,11 +158,9 @@ movieHistory.css({
 });
 $("#movieHistoryText").append(movieHistory);
 $(movieHistory).text(localStorage.getItem("movie"));
-
 $("#result").on("click", function () {
   movieSearch();
   //console.log(movieHistory + "Text");
   getRandomFare();
 });
-
 $(movieHistory).on("click", function () {});
