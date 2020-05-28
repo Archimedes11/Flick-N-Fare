@@ -1,71 +1,105 @@
-// var firebaseConfig = {
-//   apiKey: "AIzaSyBxS26xgOho5G_1W-Cc9Rwx6cmr5gNfcA0",
-//   authDomain: "a-new-project-a5553.firebaseapp.com",
-//   databaseURL: "https://a-new-project-a5553.firebaseio.com",
-//   projectId: "a-new-project-a5553",
-//   storageBucket: "a-new-project-a5553.appspot.com",
-//   messagingSenderId: "582759574527",
-//   appId: "1:582759574527:web:4a5e53e17b3e6fcb8515ca",
-//   measurementId: "G-KT0DPHG31D",
-// };
-// // Initialize Firebase
-// firebase.initializeApp(firebaseConfig);
-// firebase.analytics();
+var randomId = 0;
+function fareSearch() {
+  //var fare = $(this).attr("value");
+  pickFare();
+  var settings1 = {
+    url:
+      "https://api.spoonacular.com/recipes/" +
+      randomId +
+      "/information?cuisine=" +
+      fare +
+      "&offset=50&number=1&instructionsRequired=true&includeNutrition=true&apiKey=c4a805b12c474690b2cb2c967cd12dff",
+    method: "GET",
+    timeout: 0,
+    headers: {},
+  };
+  $.ajax(settings1).then(function (response) {
+    //console.log(response);
+    $("#farePic").attr("src", response.image);
+    $("#recipeTitle").text(response.title);
+    $("#recipe").html(response.summary);
+    // for (var l = 0; l < response.length; l++) {
+    //   var result = response[l];
 
-// //Recipe Search
-// var settings1 = {
-//   async: true,
-//   crossDomain: true,
-//   url:
-//     "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?cuisine=indian&diet=vegetarian&excludeIngredients=coconut&intolerances=egg%252C%20gluten&number=10&offset=0&type=main%20course&query=burger",
-//   method: "GET",
-//   headers: {
-//     "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-//     "x-rapidapi-key": "62afd12ed3msh967bb13d2fe4a21p1bc52fjsn999fe4d47451",
-//   },
-// };
+    //   $("#farePic").attr(
+    //     "src",
+    //     "https://spoonacular.com/recipeImages/" + result.image
+    //   );
+    //   $("#recipeTitle").text(result.title);
+    //   $("#recipe").text(result.summary);
+    //}
+    function getFare() {
+      //console.log(response.results.title);
+      $("#recipeTitle").attr("src", "url(" + response + ")");
+    }
+    getFare();
+  });
+}
+//Diet Choice
+function getRandomFare() {
+  pickFare();
+  var settings2 = {
+    url:
+      "https://api.spoonacular.com/recipes/search?diet=" +
+      fare +
+      "&offset=50&number=1&instructionsRequired=<boolean>&apiKey=c4a805b12c474690b2cb2c967cd12dff",
+    method: "GET",
+    timeout: 0,
+    headers: {},
+  };
+  console.log(settings2.url);
+  $.ajax(settings2).then(function (response) {
+    //console.log(response);
+    for (var m = 0; m < response.results.length; m++) {
+      randomId = response.results[m].id;
+      console.log(settings2.url);
+      fareSearch();
+    }
+  });
+}
+console.log("random id: " + randomId);
+var fare;
+var Italian = "italian";
+var American = "American";
+var Mexican = "Mexican";
+var Indian = "Indian";
+var Cajun = "Cajun";
+var Greek = "Greek";
+var dietChoiceArray = [];
+var GlutenFree = "Gluten Free";
+var Vegan = "Vegan";
+function pickFare() {
+  if ($("#selectFare").val() === "Italian") {
+    fare = Italian;
+  }
+  if ($("#selectFare").val() === "American") {
+    fare = American;
+  }
+  if ($("#selectFare").val() === "Mexican") {
+    fare = Mexican;
+  }
+  if ($("#selectFare").val() === "Indian") {
+    fare = Indian;
+  }
+  if ($("#selectFare").val() === "Vegan") {
+    fare = Vegan;
+  }
+  if ($("#selectFare").val() === "Cajun") {
+    fare = Cajun;
+  }
+  if ($("#selectFare").val() === "Greek") {
+    fare = Greek;
+  }
+  if ($("#selectFare").val() === "GlutenFree") {
+    fare = GlutenFree;
+  }
+}
+//function fareSearch() {
+//var fare = $(this).attr("value");
+// pickFare();
+// settings1;
 
-// $.ajax(settings).done(function (response) {
-//   console.log(response);
-// });
-// //Get Similar Recipes
-// var settings2 = {
-//   async: true,
-//   crossDomain: true,
-//   url:
-//     "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/156992/similar",
-//   method: "GET",
-//   headers: {
-//     "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-//     "x-rapidapi-key": "62afd12ed3msh967bb13d2fe4a21p1bc52fjsn999fe4d47451",
-//   },
-// };
-
-// $.ajax(settings).done(function (response) {
-//   console.log(response);
-// });
-// //Get Recipe Nutrition by ID
-// var settings3 = {
-//   async: true,
-//   crossDomain: true,
-//   url:
-//     "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/visualizeNutrition",
-//   method: "POST",
-//   headers: {
-//     "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-//     "x-rapidapi-key": "62afd12ed3msh967bb13d2fe4a21p1bc52fjsn999fe4d47451",
-//     accept: "text/html",
-//     "content-type": "application/x-www-form-urlencoded",
-//   },
-//   data: {
-//     ingredientList: "3 oz flour",
-//     servings: "2",
-//   },
-// };
-
-// $.ajax(settings).done(function (response) {
-//   console.log(response);
-// });
+//console.log(fare);
 
 var movieArray = [];
 var action = 28;
@@ -133,11 +167,26 @@ function movieSearch() {
       $("#releaseDate").text(randomMovie.release_date);
       console.log(randomMovie.overview);
       $("#synopsis").text(randomMovie.overview);
+      console.log("Genre => " + randomMovie.genre_ids);
+      localStorage.setItem("movie", randomMovie.title);
+      $(movieHistory).text(localStorage.getItem("movie"));
     }
     getMovie();
   });
 }
 
+var movieHistory = $("<p>");
+movieHistory.css({
+  color: "blue",
+  "font-size": "14px",
+});
+$("#movieHistoryText").append(movieHistory);
+$(movieHistory).text(localStorage.getItem("movie"));
+
 $("#result").on("click", function () {
   movieSearch();
+  //console.log(movieHistory + "Text");
+  getRandomFare();
 });
+
+$(movieHistory).on("click", function () {});
