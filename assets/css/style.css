@@ -1,3 +1,11 @@
+@font-face {
+    font-family: apples;
+    src: url(../Fonts/apples.ttf);
+  }
+  @font-face {
+    font-family: movieFont;
+    src: url(../Fonts/movieFont.otf);
+  }
 .jumbotron {
     margin-bottom: 0px; 
 }
@@ -20,6 +28,7 @@
 }
 #movieHistory {
     border-style: none;
+    text-align: center;
 }
 .movieHistoryCard {
     margin: 0px;
@@ -31,12 +40,59 @@
 }
 #fareHistory {
     border-style: none;
+    text-align: center;
 }
 .movieList {
     padding: 0px 0px 0px 0px;
 }
-
-
+/* Adam's CSS */
+.displayInfo{
+    background-image: url("../images/Coffee.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.card,
+.card-body
+{
+    background-color: rgba(255,255,255,.1);
+    height: 100%;
+}
+.display-4,
+.mainHeader{
+    font-family: apples;
+    font-weight: bolder;
+    text-align: center;
+    transform:translateY(-50%);
+    background: linear-gradient(to right,black, darkgrey, black, darkgrey, black);
+    -webkit-text-fill-color: transparent;
+    -webkit-background: text;
+    text-align: center;
+    font-weight: 500;
+    margin-top: 45px;
+}
+.secondaryHeader{
+    background-color: lightcoral;
+}
+.historyInfo{
+    background-color: lightcoral;
+}
+h1{
+    font-size: 4rem;
+}
+.navbar{
+    background-color: lightblue!important;
+    margin-bottom: -50px;
+}
+.lead,
+#recipeTitle,
+#recipe,
+#title,
+#releaseDate,
+#synopsis{
+    font-family: movieFont;
+    font-size: 25px;
+    font-weight: 900!important;
+}
 
 
 
