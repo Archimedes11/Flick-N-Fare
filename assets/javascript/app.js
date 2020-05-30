@@ -1,6 +1,5 @@
 var randomId = 0;
 function fareSearch() {
-  //var fare = $(this).attr("value");
   pickFare();
   var settings1 = {
     url:
@@ -14,22 +13,11 @@ function fareSearch() {
     headers: {},
   };
   $.ajax(settings1).then(function (response) {
-    //console.log(response);
     $("#farePic").attr("src", response.image);
     $("#recipeTitle").text(response.title);
     $("#recipe").html(response.summary);
-    // for (var l = 0; l < response.length; l++) {
-    //   var result = response[l];
 
-    //   $("#farePic").attr(
-    //     "src",
-    //     "https://spoonacular.com/recipeImages/" + result.image
-    //   );
-    //   $("#recipeTitle").text(result.title);
-    //   $("#recipe").text(result.summary);
-    //}
     function getFare() {
-      //console.log(response.results.title);
       $("#recipeTitle").attr("src", "url(" + response + ")");
     }
     getFare();
@@ -42,7 +30,7 @@ function getRandomFare() {
     url:
       "https://api.spoonacular.com/recipes/search?diet=" +
       fare +
-      "&offset=50&number=1&instructionsRequired=<boolean>&apiKey=c4a805b12c474690b2cb2c967cd12dff",
+      "&offset=50&number=1&instructionsRequired=true&apiKey=c4a805b12c474690b2cb2c967cd12dff",
     method: "GET",
     timeout: 0,
     headers: {},
@@ -57,7 +45,7 @@ function getRandomFare() {
     }
   });
 }
-console.log("random id: " + randomId);
+// console.log("random id: " + randomId);
 var fare;
 var Italian = "italian";
 var American = "American";
@@ -94,12 +82,25 @@ function pickFare() {
     fare = GlutenFree;
   }
 }
-//function fareSearch() {
-//var fare = $(this).attr("value");
-// pickFare();
-// settings1;
 
-//console.log(fare);
+var movieCount = 0;
+
+var localStorageMovieHistoryArray = localStorage.getItem("movielist");
+console.log(localStorageMovieHistoryArray);
+var movieHistoryArray = [];
+movieHistoryArray = JSON.parse(localStorageMovieHistoryArray);
+if (
+  localStorageMovieHistoryArray !== null &&
+  localStorageMovieHistoryArray !== "null" &&
+  localStorageMovieHistoryArray !== undefined
+) {
+  for (var a = 0; a < movieHistoryArray.length; a++) {
+    createMovieHistory(movieHistoryArray[a].id, movieHistoryArray[a].text);
+    movieCount = parseInt(movieHistoryArray[a].id) + 1;
+  }
+} else {
+  movieHistoryArray = [];
+}
 
 var movieArray = [];
 var action = 28;
@@ -150,7 +151,15 @@ function movieSearch() {
     for (var i = 0; i < response.results.length; i++) {
       //console.log(response.results[i]);
       var results = response.results[i];
-      movieArray.push(results);
+      if (
+        !(
+          results.title === undefined ||
+          results.title === null ||
+          results.title === "null"
+        )
+      ) {
+        movieArray.push(results);
+      }
     }
     //console.log(movieArray);
     function getMovie() {
@@ -161,32 +170,71 @@ function movieSearch() {
         "src",
         "https://image.tmdb.org/t/p/original/" + randomMovie.poster_path
       );
-      console.log(randomMovie.title);
+      console.log(JSON.stringify(randomMovie.title));
       $("#title").text(randomMovie.title);
       console.log(randomMovie.release_date);
       $("#releaseDate").text(randomMovie.release_date);
       console.log(randomMovie.overview);
       $("#synopsis").text(randomMovie.overview);
       console.log("Genre => " + randomMovie.genre_ids);
-      localStorage.setItem("movie", randomMovie.title);
-      $(movieHistory).text(localStorage.getItem("movie"));
+      localStorage.setItem("movie", JSON.stringify(randomMovie.title));
+      createMovieHistory(movieCount, movieTitle);
+      //$(movieHistory).text(localStorage.getItem("movie"));
     }
     getMovie();
   });
 }
 
-var movieHistory = $("<p>");
-movieHistory.css({
-  color: "blue",
-  "font-size": "14px",
-});
-$("#movieHistoryText").append(movieHistory);
-$(movieHistory).text(localStorage.getItem("movie"));
+function createMovieHistory(id, text) {
+  var movieHistory = $("<p>");
+  movieHistory.css({
+    color: "blue",
+    "font-size": "14px",
+  });
+  movieHistory.attr("id", "movie-" + id);
+  movieHistory.html(text);
+  var delMovie = $("<button>");
+  delMovie.attr("data-movie-id", id);
+  delMovie.addClass("checkbox");
+  delMovie.html("X");
+  if (!(text === undefined || text === null || text === "null")) {
+    movieHistory.append(delMovie);
+  }
+  $("#movieHistoryText").append(movieHistory);
+}
 
-$("#result").on("click", function () {
+$("#result").on("click", function (event) {
+  event.preventDefault();
   movieSearch();
   //console.log(movieHistory + "Text");
+  console.log("movieTitle: ");
+  var movieTitle = localStorage.getItem("movie");
   getRandomFare();
+  console.log("random id: " + randomId);
+  var movieObject = {
+    id: movieCount,
+    text: movieTitle,
+  };
+  movieCount++;
+  createMovieHistory(movieCount, movieTitle);
+
+  movieHistoryArray.push(movieObject);
+  var stringVersionMovies = JSON.stringify(movieHistoryArray);
+  //localStorage.clear();
+  localStorage.setItem("movielist", stringVersionMovies);
 });
 
-$(movieHistory).on("click", function () {});
+$(document.body).on("click", ".checkbox", function () {
+  var movieNumber = $(this).data("movie-id");
+  $("#movie-" + movieNumber).empty();
+  localStorage.clear();
+  var newMovieHistoryArray = [];
+  for (var i = 0; i < movieHistoryArray.length; i++) {
+    if (movieHistoryArray[i].id != movieNumber) {
+      newMovieHistoryArray.push(movieHistoryArray[i]);
+    }
+  }
+  movieHistoryArray = newMovieHistoryArray;
+  var stringVersionMovies = JSON.stringify(movieHistoryArray);
+  localStorage.setItem("movielist", stringVersionMovies);
+});
