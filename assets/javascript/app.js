@@ -16,7 +16,6 @@ function fareSearch() {
     $("#farePic").attr("src", response.image);
     $("#recipeTitle").text(response.title);
     $("#recipe").html(response.summary);
-
     function getFare() {
       $("#recipeTitle").attr("src", "url(" + response + ")");
     }
@@ -111,7 +110,6 @@ var family = 10751;
 var horror = 27;
 var scifi = 878;
 var genre = 0;
-
 function pickGenre() {
   if ($("#select").val() === "action") {
     genre = action;
@@ -135,7 +133,6 @@ function pickGenre() {
     genre = scifi;
   }
 }
-
 function movieSearch() {
   //var genre = $(this).attr("value");
   pickGenre();
@@ -143,7 +140,6 @@ function movieSearch() {
     "https://api.themoviedb.org/3/discover/movie?api_key=ff46f8ea1d82a3eb64afbd0bbaf6cef5&include_adult=false&with_genres=" +
     genre;
   console.log(genre);
-
   $.ajax({
     url: queryURL,
     method: "GET",
