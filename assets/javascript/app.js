@@ -163,4 +163,8 @@ $("#result").on("click", function () {
   //console.log(movieHistory + "Text");
   getRandomFare();
 });
+
 $(movieHistory).on("click", function () { });
+
+$(movieHistory).on("click", function () {});
+
