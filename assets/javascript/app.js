@@ -29,7 +29,7 @@ function getRandomFare() {
     url:
       "https://api.spoonacular.com/recipes/search?diet=" +
       fare +
-      "&offset=50&number=1&instructionsRequired=true&apiKey=c4a805b12c474690b2cb2c967cd12dff",
+      "&offset=50&number=5&instructionsRequired=true&apiKey=c4a805b12c474690b2cb2c967cd12dff",
     method: "GET",
     timeout: 0,
     headers: {},
