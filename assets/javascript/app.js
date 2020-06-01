@@ -18,6 +18,7 @@ if (
   recipeHistoryArray = [];
 }
 
+//Fare Search
 var randomId = 0;
 function fareSearch() {
   pickFare();
@@ -76,6 +77,7 @@ function getRandomFare() {
   });
 }
 
+//Fare Types
 var fare;
 var Italian = "italian";
 var American = "American";
