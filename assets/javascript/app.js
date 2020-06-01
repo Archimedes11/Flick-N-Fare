@@ -27,7 +27,7 @@ function fareSearch() {
       randomId +
       "/information?cuisine=" +
       fare +
-      "&offset=50&number=1&instructionsRequired=true&includeNutrition=true&apiKey=c4a805b12c474690b2cb2c967cd12dff",
+      "&offset=50&number=1&instructionsRequired=true&includeNutrition=true&apiKey=437bf2c82535454aa99e2de3a824e4ac",
     method: "GET",
     timeout: 0,
     headers: {},
@@ -51,7 +51,7 @@ function getRandomFare() {
     url:
       "https://api.spoonacular.com/recipes/search?diet=" +
       fare +
-      "&offset=50&number=1&instructionsRequired=true&apiKey=c4a805b12c474690b2cb2c967cd12dff",
+      "&offset=50&number=1&instructionsRequired=true&apiKey=437bf2c82535454aa99e2de3a824e4ac",
     method: "GET",
     timeout: 0,
     headers: {},
