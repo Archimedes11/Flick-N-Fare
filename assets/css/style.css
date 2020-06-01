@@ -1,3 +1,4 @@
+/* -----Importing Fonts----- */
 @font-face {
   font-family: apples;
   src: url(../Fonts/apples.ttf);
@@ -6,8 +7,14 @@
   font-family: movieFont;
   src: url(../Fonts/movieFont.otf);
 }
+@font-face {
+  font-family: cuisine;
+  src: url(../Fonts/cuisine.ttf);
+}
+/* -----Lines 15-54 are for template layout----- */
 .jumbotron {
   margin-bottom: 0px;
+  padding: 20px;
 }
 .col-sm-4 {
   padding-left: 0px;
@@ -45,18 +52,22 @@
 .movieList {
   padding: 0px 0px 0px 0px;
 }
-/* Adam's CSS */
+/* -----End of template CSS----- */
+/* ----------------------------- */
+/* ----------------------------- */
+/* ----------------------------- */
+/* -----Background  Picture----- */
 .displayInfo {
   background-image: url("../images/Coffee.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
+/* -----Makes the background Image Visable----- */
 .card,
 .card-body {
-  background-color: rgba(255, 255, 255, 0.1);
-  height: 100%;
+  background-color: rgba(255, 255, 255, 0.4);
 }
-.display-4,
+/* -----Creates the color transition effect in the header----- */
 .mainHeader {
   font-family: apples;
   font-weight: bolder;
@@ -64,11 +75,31 @@
   transform: translateY(-50%);
   background: linear-gradient(
     to right,
+    lightcoral,
+    grey,
+    lightcoral,
+    grey,
+    lightcoral
+  );
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  text-align: center;
+  font-weight: 500;
+  margin-top: 45px;
+}
+/* -----Creates the color transition effect in the second section----- */
+.display-4 {
+  font-family: apples;
+  font-weight: bolder;
+  text-align: center;
+  transform: translateY(-50%);
+  background: linear-gradient(
+    to right,
+    lightblue,
     black,
-    darkgrey,
+    lightblue,
     black,
-    darkgrey,
-    black
+    lightblue
   );
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
@@ -81,6 +112,7 @@
 }
 .historyInfo {
   background-color: lightcoral;
+  margin-bottom: 0px;
 }
 h1 {
   font-size: 4rem;
@@ -89,8 +121,9 @@ h1 {
   background-color: lightblue !important;
   margin-bottom: -50px;
 }
+/* -----Changes the font to these classes and id's ----- */
 .lead,
-#recipeTitle,
+#recipe-title,
 #recipe,
 #title,
 #releaseDate,
@@ -99,81 +132,131 @@ h1 {
   font-size: 25px;
   font-weight: 900 !important;
 }
-body{
+/* -----Lines 138-215 take away the white space on the right side of the page----- */
+body {
   margin-right: 0px;
 }
-.col, 
-.col-1, 
-.col-10, 
-.col-11, 
-.col-12, 
-.col-2, 
-.col-3, 
-.col-4, 
+.col,
+.col-1,
+.col-10,
+.col-11,
+.col-12,
+.col-2,
+.col-3,
+.col-4,
 .col-5,
-.col-6, 
-.col-7, 
-.col-8, 
-.col-9, 
-.col-auto, 
-.col-lg, 
-.col-lg-1, 
-.col-lg-10, 
-.col-lg-11, 
-.col-lg-12, 
-.col-lg-2, 
-.col-lg-3, 
-.col-lg-4, 
-.col-lg-5, 
-.col-lg-6, 
-.col-lg-7, 
-.col-lg-8, 
-.col-lg-9, 
-.col-lg-auto, 
-.col-md, 
-.col-md-1, 
-.col-md-10, 
-.col-md-11, 
-.col-md-12, 
-.col-md-2, 
-.col-md-3, 
-.col-md-4, 
-.col-md-5, 
-.col-md-6, 
-.col-md-7, 
-.col-md-8, 
-.col-md-9, 
-.col-md-auto, 
-.col-sm, 
-.col-sm-1, 
-.col-sm-10, 
-.col-sm-11, 
-.col-sm-12, 
-.col-sm-2, 
-.col-sm-3, 
-.col-sm-4, 
-.col-sm-5, 
-.col-sm-6, 
-.col-sm-7, 
-.col-sm-8, 
-.col-sm-9, 
-.col-sm-auto, 
-.col-xl, 
-.col-xl-1, 
-.col-xl-10, 
-.col-xl-11, 
-.col-xl-12, 
-.col-xl-2, 
-.col-xl-3, 
-.col-xl-4, 
-.col-xl-5, 
-.col-xl-6, 
-.col-xl-7, 
-.col-xl-8, 
-.col-xl-9, 
-.col-xl-auto{
-padding-right: 0px !important;
+.col-6,
+.col-7,
+.col-8,
+.col-9,
+.col-auto,
+.col-lg,
+.col-lg-1,
+.col-lg-10,
+.col-lg-11,
+.col-lg-12,
+.col-lg-2,
+.col-lg-3,
+.col-lg-4,
+.col-lg-5,
+.col-lg-6,
+.col-lg-7,
+.col-lg-8,
+.col-lg-9,
+.col-lg-auto,
+.col-md,
+.col-md-1,
+.col-md-10,
+.col-md-11,
+.col-md-12,
+.col-md-2,
+.col-md-3,
+.col-md-4,
+.col-md-5,
+.col-md-6,
+.col-md-7,
+.col-md-8,
+.col-md-9,
+.col-md-auto,
+.col-sm,
+.col-sm-1,
+.col-sm-10,
+.col-sm-11,
+.col-sm-12,
+.col-sm-2,
+.col-sm-3,
+.col-sm-4,
+.col-sm-5,
+.col-sm-6,
+.col-sm-7,
+.col-sm-8,
+.col-sm-9,
+.col-sm-auto,
+.col-xl,
+.col-xl-1,
+.col-xl-10,
+.col-xl-11,
+.col-xl-12,
+.col-xl-2,
+.col-xl-3,
+.col-xl-4,
+.col-xl-5,
+.col-xl-6,
+.col-xl-7,
+.col-xl-8,
+.col-xl-9,
+.col-xl-auto {
+  padding-right: 0px !important;
 }
-.topJumbo{
-padding-right: 15px!important;
+.topJumbo {
+  padding-right: 15px !important;
+}
+/* -----End of whitespace CSS----- */
+/* ----------------------------- */
+/* ----------------------------- */
+/* ----------------------------- */
+/* -----Disguises the Hyperlinks in the fare info----- */
+a,
+a:hover {
+  color: black !important;
+  text-decoration: none !important;
+  cursor: text;
+  font-weight: normal !important;
+}
+/* -----Makes the footer stick to the bottom----- */
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: lightblue;
+  color: black;
+  text-align: center;
+  font-weight: bolder;
+  font-family: monospace;
+  font-size: x-large;
+}
+/* -----Changes the styling of the checkboxes in the History Info----- */
+.checkbox{
+  background-color: lightblue;
+  color:coral;
+}
+/* -----Changes the font of the History Info----- */
+#movieHistoryText,
+#fareHistoryText{
+  font-family: cuisine;
+}
+/* -----Changes the styling of the "Results" button----- */
+#result{
+  background-color: lightblue;
+  color: black;
+  font-family: cuisine;
+}
+/* -----Changes the font of the drop-down menu----- */
+.form-control{
+  font-family: cuisine;
+}
+/* ----- This takes away the white space----- */
+.specialRow{
+  padding-bottom: 356px;
 }

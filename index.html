@@ -18,15 +18,9 @@
 <body>
   <!-- Navbar -->
   <nav class="navbar navbar-light bg-light ">
-
     <span class="navbar-brand mb-0 h1 mainHeader">
       <h1>Flick-n-Fare</h1>
     </span>
-
-    <span class="navbar-brand mb-0 h1 mainHeader">
-      <h1>Flick-n-Fare</h1>
-    </span>
-
   </nav>
   <!-- Jumbotron -->
   <div class="topJumbo">
@@ -65,11 +59,7 @@
                     <option value="Cajun">Cajun</option>
                     <option value="Greek">Greek</option>
                     <option value="GlutenFree">Gluten Free</option>
-
                   </select>
-
-                  </select>
-
                 </div>
                 <!-- Result Button -->
                 <div class="col-12 col-sm-4">
@@ -82,86 +72,63 @@
         </div>
       </div>
     </div>
-</div>
-    <!-- Result Info -->
-    <div class="displayInfo">
-      <div class="row" style="width: 100vw">
-        <!-- Movie Info -->
-        <div class="col-md-6 movie">
-          <div class="card" style="width: auto;" id="movieCard">
-            <div class="card-body">
-              <img class="card-img" id="moviePoster">
-              <p class="card-text">
-                <h4 id="title"></h4>
-                <ul class="card-text movieList" style="list-style-type:none;">
-                  <li id="releaseDate"></li>
-                  <li id="synopsis"></li>
-                </ul>
-              </p>
-            </div>
+  </div>
+  <!-- Result Info -->
+  <div class="displayInfo">
+    <div class="row specialRow" style="width: 100vw">
+      <!-- Movie Info -->
+      <div class="col-md-6 movie">
+        <div class="card" style="width: auto;" id="movieCard">
+          <div class="card-body">
+            <img class="card-img" id="moviePoster">
+            <p class="card-text">
+              <h4 id="title"></h4>
+              <ul class="card-text movieList" style="list-style-type:none;">
+                <li id="releaseDate"></li>
+                <li id="synopsis"></li>
+              </ul>
+            </p>
           </div>
         </div>
-        <!-- Fare Info -->
-        <div class="col-md-6 fare">
-          <div class="card fareDisplay" style="width: auto;" id="fareCard">
-            <div class="card-body">
-              <img class="card-img" id="farePic">
-              <p class="card-text">
-                <h4 id="recipeTitle"></h4>
-                <p id="recipe"></p>
-              </p>
-            </div>
+      </div>
+      <!-- Fare Info -->
+      <div class="col-md-6 fare">
+        <div class="card fareDisplay" style="width: auto;" id="fareCard">
+          <div class="card-body">
+            <img class="card-img" id="farePic">
+            <p class="card-text">
+              <h4 id="recipe-title"></h4>
+              <p id="recipe"></p>
+            </p>
           </div>
         </div>
       </div>
     </div>
-    <!-- History -->
-    <div class="historyInfo">
-      <div class="row" style="width: 100vw">
-        <!-- Movie History -->
-        <div class="col-md-6 movieHistoryCard">
-          <div class="card" style="width: auto;" id="movieHistory">
-            <div class="card-body">
-              <p class="card-text">
-                <h2 id="movieHistoryText">Movie History</h2>
-              </p>
-            </div>
-          </div>
-        </div>
-        <!-- Fare History -->
-        <div class="col-md-6 fareHistoryCard">
-          <div class="card" style="width: auto;" id="fareHistory">
-            <div class="card-body">
-              <p class="card-text">
-                <h2 id="fareHistoryText">Fare History</h2>
-
-              </p>
-            </div>
+  </div>
+  <!-- History -->
+  <div class="historyInfo">
+    <div class="row" style="width: 100vw">
+      <!-- Movie History -->
+      <div class="col-md-6 movieHistoryCard">
+        <div class="card" style="width: auto;" id="movieHistory">
+          <div class="card-body">
+            <p class="card-text">
+              <h2 id="movieHistoryText">Movie History</h2>
+            </p>
           </div>
         </div>
       </div>
-      <!-- Footer -->
-      <footer class="footer">
-        <div class="footer-copyright  text-center ">© 2020 Copyright</div>
-      </footer>
-      <!-- JavaScript, JQuery, Popper, Bootstrap.js -->
-      <!-- JQuery -->
-      <script src="https://code.jquery.com/jquery-3.5.1.js"
-        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous">
-        </script>
-      <!-- Our JavaScript -->
-      <script src="assets/javascript/app.js"></script>
-      <!-- Bootstrap Popper.js -->
-      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-      <!-- Bootstrap JavaScript -->
-      <script src="assets/bootstrap-4.5.0-dist/js/bootstrap.min.js"></script>
-
-      </p>
+      <!-- Fare History -->
+      <div class="col-md-6 fareHistoryCard">
+        <div class="card" style="width: auto;" id="fareHistory">
+          <div class="card-body">
+            <p class="card-text">
+              <h2 id="fareHistoryText">Fare History</h2>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  </div>
   </div>
   <!-- Footer -->
   <footer class="footer">
@@ -180,7 +147,6 @@
     crossorigin="anonymous"></script>
   <!-- Bootstrap JavaScript -->
   <script src="assets/bootstrap-4.5.0-dist/js/bootstrap.min.js"></script>
-
 </body>
 
 </html>
