@@ -178,3 +178,11 @@ body {
 .topJumbo {
   padding-right: 15px !important;
 }
+
+a,
+a:hover {
+  color: black !important;
+  text-decoration: none !important;
+  cursor: text;
+  font-weight: normal !important;
+}
