@@ -1,3 +1,23 @@
+var recipeCount = 0;
+var recipeArray = [];
+
+var localStorageRecipeHistoryArray = localStorage.getItem("recipelist");
+console.log(localStorageRecipeHistoryArray);
+var recipeHistoryArray = [];
+recipeHistoryArray = JSON.parse(localStorageRecipeHistoryArray);
+if (
+  localStorageRecipeHistoryArray !== null &&
+  localStorageRecipeHistoryArray !== "null" &&
+  localStorageRecipeHistoryArray !== undefined
+) {
+  for (var b = 0; b < recipeHistoryArray.length; b++) {
+    createRecipeHistory(recipeHistoryArray[b].id, recipeHistoryArray[b].text);
+    recipeCount = parseInt(recipeHistoryArray[b].id) + 1;
+  }
+} else {
+  recipeHistoryArray = [];
+}
+
 var randomId = 0;
 function fareSearch() {
   pickFare();
@@ -16,6 +36,8 @@ function fareSearch() {
     $("#farePic").attr("src", response.image);
     $("#recipeTitle").text(response.title);
     $("#recipe").html(response.summary);
+    localStorage.setItem("recipe", JSON.stringify(response.title));
+    createRecipeHistory(recipeCount, recipeTitle);
     function getFare() {
       $("#recipeTitle").attr("src", "url(" + response + ")");
     }
@@ -29,7 +51,7 @@ function getRandomFare() {
     url:
       "https://api.spoonacular.com/recipes/search?diet=" +
       fare +
-      "&offset=50&number=5&instructionsRequired=true&apiKey=c4a805b12c474690b2cb2c967cd12dff",
+      "&offset=50&number=1&instructionsRequired=true&apiKey=c4a805b12c474690b2cb2c967cd12dff",
     method: "GET",
     timeout: 0,
     headers: {},
@@ -38,6 +60,16 @@ function getRandomFare() {
   $.ajax(settings2).then(function (response) {
     //console.log(response);
     for (var m = 0; m < response.results.length; m++) {
+      var results = response.results[m];
+      if (
+        !(
+          results.title === undefined ||
+          results.title === null ||
+          results.title === "null"
+        )
+      ) {
+        recipeArray.push(results);
+      }
       randomId = response.results[m].id;
       console.log(settings2.url);
       fareSearch();
@@ -181,6 +213,24 @@ function movieSearch() {
   });
 }
 
+function createRecipeHistory(id, text) {
+  var recipeHistory = $("<p>");
+  recipeHistory.css({
+    color: "blue",
+    "font-size": "14px",
+  });
+  recipeHistory.attr("id", "recipe-" + id);
+  recipeHistory.html(text);
+  var delRecipe = $("<button>");
+  delRecipe.attr("data-recipe-id", id);
+  delRecipe.addClass("checkbox");
+  delRecipe.html("X");
+  if (!(text === undefined || text === null || text === "null")) {
+    recipeHistory.append(delRecipe);
+  }
+  $("#fareHistoryText").append(recipeHistory);
+}
+
 function createMovieHistory(id, text) {
   var movieHistory = $("<p>");
   movieHistory.css({
@@ -206,7 +256,21 @@ $("#result").on("click", function (event) {
   console.log("movieTitle: ");
   var movieTitle = localStorage.getItem("movie");
   getRandomFare();
+  var recipeTitle = localStorage.getItem("recipe");
   console.log("random id: " + randomId);
+
+  var recipeObject = {
+    id: recipeCount,
+    text: recipeTitle,
+  };
+  recipeCount++;
+  createRecipeHistory(recipeCount, recipeTitle);
+
+  recipeHistoryArray.push(recipeObject);
+  var stringVersionRecipes = JSON.stringify(recipeHistoryArray);
+  //localStorage.clear();
+  localStorage.setItem("recipelist", stringVersionRecipes);
+
   var movieObject = {
     id: movieCount,
     text: movieTitle,
