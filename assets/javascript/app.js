@@ -34,12 +34,12 @@ function fareSearch() {
   };
   $.ajax(settings1).then(function (response) {
     $("#farePic").attr("src", response.image);
-    $("#recipeTitle").text(response.title);
+    $("#recipe-title").text(response.title);
     $("#recipe").html(response.summary);
     localStorage.setItem("recipe", JSON.stringify(response.title));
     createRecipeHistory(recipeCount, recipeTitle);
     function getFare() {
-      $("#recipeTitle").attr("src", "url(" + response + ")");
+      $("#recipe-title").attr("src", "url(" + response + ")");
     }
     getFare();
   });
@@ -58,7 +58,6 @@ function getRandomFare() {
   };
   console.log(settings2.url);
   $.ajax(settings2).then(function (response) {
-    //console.log(response);
     for (var m = 0; m < response.results.length; m++) {
       var results = response.results[m];
       if (
@@ -76,7 +75,7 @@ function getRandomFare() {
     }
   });
 }
-// console.log("random id: " + randomId);
+
 var fare;
 var Italian = "italian";
 var American = "American";
@@ -166,7 +165,6 @@ function pickGenre() {
   }
 }
 function movieSearch() {
-  //var genre = $(this).attr("value");
   pickGenre();
   var queryURL =
     "https://api.themoviedb.org/3/discover/movie?api_key=ff46f8ea1d82a3eb64afbd0bbaf6cef5&include_adult=false&with_genres=" +
@@ -177,7 +175,6 @@ function movieSearch() {
     method: "GET",
   }).then(function (response) {
     for (var i = 0; i < response.results.length; i++) {
-      //console.log(response.results[i]);
       var results = response.results[i];
       if (
         !(
@@ -189,7 +186,7 @@ function movieSearch() {
         movieArray.push(results);
       }
     }
-    //console.log(movieArray);
+
     function getMovie() {
       var randomMovie =
         movieArray[Math.floor(Math.random() * movieArray.length)];
@@ -207,7 +204,6 @@ function movieSearch() {
       console.log("Genre => " + randomMovie.genre_ids);
       localStorage.setItem("movie", JSON.stringify(randomMovie.title));
       createMovieHistory(movieCount, movieTitle);
-      //$(movieHistory).text(localStorage.getItem("movie"));
     }
     getMovie();
   });
@@ -216,7 +212,6 @@ function movieSearch() {
 function createRecipeHistory(id, text) {
   var recipeHistory = $("<p>");
   recipeHistory.css({
-    color: "blue",
     "font-size": "14px",
   });
   recipeHistory.attr("id", "recipe-" + id);
@@ -234,7 +229,6 @@ function createRecipeHistory(id, text) {
 function createMovieHistory(id, text) {
   var movieHistory = $("<p>");
   movieHistory.css({
-    color: "blue",
     "font-size": "14px",
   });
   movieHistory.attr("id", "movie-" + id);
@@ -252,7 +246,7 @@ function createMovieHistory(id, text) {
 $("#result").on("click", function (event) {
   event.preventDefault();
   movieSearch();
-  //console.log(movieHistory + "Text");
+
   console.log("movieTitle: ");
   var movieTitle = localStorage.getItem("movie");
   getRandomFare();
@@ -268,7 +262,7 @@ $("#result").on("click", function (event) {
 
   recipeHistoryArray.push(recipeObject);
   var stringVersionRecipes = JSON.stringify(recipeHistoryArray);
-  //localStorage.clear();
+
   localStorage.setItem("recipelist", stringVersionRecipes);
 
   var movieObject = {
@@ -280,7 +274,7 @@ $("#result").on("click", function (event) {
 
   movieHistoryArray.push(movieObject);
   var stringVersionMovies = JSON.stringify(movieHistoryArray);
-  //localStorage.clear();
+
   localStorage.setItem("movielist", stringVersionMovies);
 });
 
@@ -297,4 +291,17 @@ $(document.body).on("click", ".checkbox", function () {
   movieHistoryArray = newMovieHistoryArray;
   var stringVersionMovies = JSON.stringify(movieHistoryArray);
   localStorage.setItem("movielist", stringVersionMovies);
+
+  var recipeNumber = $(this).data("recipe-id");
+  $("#recipe-" + recipeNumber).empty();
+  localStorage.clear();
+  var newRecipeHistoryArray = [];
+  for (var i = 0; i < recipeHistoryArray.length; i++) {
+    if (recipeHistoryArray[i].id != recipeNumber) {
+      newRecipeHistoryArray.push(recipeHistoryArray[i]);
+    }
+  }
+  recipeHistoryArray = newRecipeHistoryArray;
+  var stringVersionRecipes = JSON.stringify(recipeHistoryArray);
+  localStorage.setItem("recipelist", stringVersionRecipes);
 });
