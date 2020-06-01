@@ -1,5 +1,6 @@
 var recipeCount = 0;
 var recipeArray = [];
+
 var localStorageRecipeHistoryArray = localStorage.getItem("recipelist");
 console.log(localStorageRecipeHistoryArray);
 var recipeHistoryArray = [];
@@ -16,6 +17,7 @@ if (
 } else {
   recipeHistoryArray = [];
 }
+
 var randomId = 0;
 function fareSearch() {
   pickFare();
@@ -73,6 +75,7 @@ function getRandomFare() {
     }
   });
 }
+
 var fare;
 var Italian = "italian";
 var American = "American";
@@ -109,7 +112,9 @@ function pickFare() {
     fare = GlutenFree;
   }
 }
+
 var movieCount = 0;
+
 var localStorageMovieHistoryArray = localStorage.getItem("movielist");
 console.log(localStorageMovieHistoryArray);
 var movieHistoryArray = [];
@@ -126,6 +131,7 @@ if (
 } else {
   movieHistoryArray = [];
 }
+
 var movieArray = [];
 var action = 28;
 var comedy = 35;
@@ -180,6 +186,7 @@ function movieSearch() {
         movieArray.push(results);
       }
     }
+
     function getMovie() {
       var randomMovie =
         movieArray[Math.floor(Math.random() * movieArray.length)];
@@ -201,6 +208,7 @@ function movieSearch() {
     getMovie();
   });
 }
+
 function createRecipeHistory(id, text) {
   var recipeHistory = $("<p>");
   recipeHistory.css({
@@ -217,6 +225,7 @@ function createRecipeHistory(id, text) {
   }
   $("#fareHistoryText").append(recipeHistory);
 }
+
 function createMovieHistory(id, text) {
   var movieHistory = $("<p>");
   movieHistory.css({
@@ -233,33 +242,40 @@ function createMovieHistory(id, text) {
   }
   $("#movieHistoryText").append(movieHistory);
 }
+
 $("#result").on("click", function (event) {
   event.preventDefault();
   movieSearch();
+
   console.log("movieTitle: ");
   var movieTitle = localStorage.getItem("movie");
   getRandomFare();
   var recipeTitle = localStorage.getItem("recipe");
   console.log("random id: " + randomId);
+
   var recipeObject = {
     id: recipeCount,
     text: recipeTitle,
   };
   recipeCount++;
   createRecipeHistory(recipeCount, recipeTitle);
+
   recipeHistoryArray.push(recipeObject);
   var stringVersionRecipes = JSON.stringify(recipeHistoryArray);
   localStorage.setItem("recipelist", stringVersionRecipes);
+
   var movieObject = {
     id: movieCount,
     text: movieTitle,
   };
   movieCount++;
   createMovieHistory(movieCount, movieTitle);
+
   movieHistoryArray.push(movieObject);
   var stringVersionMovies = JSON.stringify(movieHistoryArray);
   localStorage.setItem("movielist", stringVersionMovies);
 });
+
 $(document.body).on("click", ".checkbox", function () {
   var movieNumber = $(this).data("movie-id");
   $("#movie-" + movieNumber).empty();
