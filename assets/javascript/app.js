@@ -262,7 +262,6 @@ $("#result").on("click", function (event) {
 
   recipeHistoryArray.push(recipeObject);
   var stringVersionRecipes = JSON.stringify(recipeHistoryArray);
-
   localStorage.setItem("recipelist", stringVersionRecipes);
 
   var movieObject = {
@@ -274,7 +273,6 @@ $("#result").on("click", function (event) {
 
   movieHistoryArray.push(movieObject);
   var stringVersionMovies = JSON.stringify(movieHistoryArray);
-
   localStorage.setItem("movielist", stringVersionMovies);
 });
 
@@ -291,7 +289,6 @@ $(document.body).on("click", ".checkbox", function () {
   movieHistoryArray = newMovieHistoryArray;
   var stringVersionMovies = JSON.stringify(movieHistoryArray);
   localStorage.setItem("movielist", stringVersionMovies);
-
   var recipeNumber = $(this).data("recipe-id");
   $("#recipe-" + recipeNumber).empty();
   localStorage.clear();
