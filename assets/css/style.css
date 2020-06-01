@@ -2,7 +2,11 @@
     margin-bottom: 0px; 
 }
 .col-sm-4 {
+<<<<<<< Updated upstream
     padding-left: 0px ;
+=======
+  padding-left: 25px;
+>>>>>>> Stashed changes
 }
 #movieCard {
     border-style: none;
