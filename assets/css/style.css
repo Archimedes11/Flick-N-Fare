@@ -55,7 +55,25 @@
   background-color: rgba(255, 255, 255, 0.1);
   height: 100%;
 }
-.display-4,
+.display-4 {
+  font-family: apples;
+  font-weight: bolder;
+  text-align: center;
+  transform: translateY(-50%);
+  background: linear-gradient(
+    to right,
+    lightblue,
+    black,
+    lightblue,
+    black,
+    lightblue
+  );
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  text-align: center;
+  font-weight: 500;
+  margin-top: 45px;
+}
 .mainHeader {
   font-family: apples;
   font-weight: bolder;
@@ -63,11 +81,11 @@
   transform: translateY(-50%);
   background: linear-gradient(
     to right,
-    black,
-    darkgrey,
-    black,
-    darkgrey,
-    black
+    lightcoral,
+    grey,
+    lightcoral,
+    grey,
+    lightcoral
   );
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
@@ -89,7 +107,7 @@ h1 {
   margin-bottom: -50px;
 }
 .lead,
-#recipeTitle,
+#recipe-title,
 #recipe,
 #title,
 #releaseDate,
