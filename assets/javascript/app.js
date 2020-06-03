@@ -25,8 +25,7 @@ if (
 } else {
   recipeHistoryArray = [];
 }
-
-//Fare Search
+//creating variable randomId equal to 0
 var randomId = 0;
 //creating fareSearch funtion
 function fareSearch() {
@@ -101,8 +100,7 @@ function getRandomFare() {
     }
   });
 }
-
-//Fare Types
+//setting variables for all of the fare choices
 var fare;
 var Italian = "italian";
 var American = "American";
@@ -309,7 +307,6 @@ $("#result").on("click", function (event) {
   event.preventDefault();
   //call movieSearch function
   movieSearch();
-
   console.log("movieTitle: ");
   //get movie from localStorage and set it equal to movieTitle
   var movieTitle = localStorage.getItem("movie");
@@ -371,9 +368,24 @@ $(document.body).on("click", ".checkbox", function () {
   var stringVersionMovies = JSON.stringify(movieHistoryArray);
   //setting stringVersionMovies to movielist in the localStorage
   localStorage.setItem("movielist", stringVersionMovies);
+  //getting data recipe-id and setting it equal to recipeNumber
+  var recipeNumber = $(this).data("recipe-id");
+  //deletes the selection
+  $("#recipe-" + recipeNumber).empty();
+  //clears from localStorage
+  localStorage.clear();
+  //creating newRecipeHistoryArray that is empty
+  var newRecipeHistoryArray = [];
+  //loop through the recipeHistoryArray and if the id is not equal to recipeNumber then push recipeHistoryArray item to newRecipeHistoryArray
+  for (var i = 0; i < recipeHistoryArray.length; i++) {
+    if (recipeHistoryArray[i].id != recipeNumber) {
+      newRecipeHistoryArray.push(recipeHistoryArray[i]);
+    }
+  }
+  //setting recipeHistoryArray equal to newRecipeHistoryArray
+  recipeHistoryArray = newRecipeHistoryArray;
+  //stringifying the recipeHistoryArray and setting it equal to stringVersionRecipes
+  var stringVersionRecipes = JSON.stringify(recipeHistoryArray);
+  //setting stringVersionRecipes to recipelist in the localStorage
+  localStorage.setItem("recipelist", stringVersionRecipes);
 });
-
-$(movieHistory).on("click", function () { });
-
-$(movieHistory).on("click", function () { });
-
