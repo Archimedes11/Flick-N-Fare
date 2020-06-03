@@ -35,7 +35,26 @@ function fareSearch() {
   $.ajax(settings1).then(function (response) {
     $("#farePic").attr("src", response.image);
     $("#recipe-title").text(response.title);
-    $("#recipe").html(response.summary);
+  /********************************************
+  * Author: Joshua Tower                      *
+  * 6/1/2020                                  *
+  * Ingredients/Directions API Information    *  
+  * Line 45-56                                *
+  * Code Version: Final                       *
+  *********************************************/
+    var ingredients = response.extendedIngredients;
+    var fullRecipeInfo = "<h3>Ingredients</h3> <br> <ul>";
+    for (i = 0; i < ingredients.length; i++) {
+      fullRecipeInfo += "<li>" + ingredients[i].originalString + "</li>";
+    }
+    fullRecipeInfo += "</ul> <br> <h3>Instructions</h3> <br> <ol>";
+    var directions = response.analyzedInstructions[0].steps;
+    for (i = 0; i < directions.length; i++) {
+      fullRecipeInfo += "<li>" + directions[i].step + "</li>";
+    }
+    fullRecipeInfo += "</ol>";
+    $("#recipe").html(fullRecipeInfo);
+
     localStorage.setItem("recipe", JSON.stringify(response.title));
     createRecipeHistory(recipeCount, recipeTitle);
     function getFare() {
