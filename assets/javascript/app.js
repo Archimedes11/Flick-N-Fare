@@ -49,9 +49,27 @@ function fareSearch() {
     $("#farePic").attr("src", response.image);
     //setting the text of the title from the api to display at #recipe-title
     $("#recipe-title").text(response.title);
-    //setting the code and text from the api to show at #recipe
-    $("#recipe").html(response.summary);
-    //setting the recipe title to show in localStorage
+
+  /********************************************
+  * Author: Joshua Tower                      *
+  * 6/1/2020                                  *
+  * Ingredients/Directions API Information    *  
+  * Line 45-56                                *
+  * Code Version: Final                       *
+  *********************************************/
+    var ingredients = response.extendedIngredients;
+    var fullRecipeInfo = "<h3>Ingredients</h3> <br> <ul>";
+    for (i = 0; i < ingredients.length; i++) {
+      fullRecipeInfo += "<li>" + ingredients[i].originalString + "</li>";
+    }
+    fullRecipeInfo += "</ul> <br> <h3>Instructions</h3> <br> <ol>";
+    var directions = response.analyzedInstructions[0].steps;
+    for (i = 0; i < directions.length; i++) {
+      fullRecipeInfo += "<li>" + directions[i].step + "</li>";
+    }
+    fullRecipeInfo += "</ol>";
+    $("#recipe").html(fullRecipeInfo);
+
     localStorage.setItem("recipe", JSON.stringify(response.title));
     //calling the createRecipeHistory function
     createRecipeHistory(recipeCount, recipeTitle);
