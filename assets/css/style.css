@@ -1,15 +1,19 @@
 /* -----Importing Fonts----- */
 @font-face {
-  font-family: apples;
-  src: url(../Fonts/apples.ttf);
+  font-family: grandHotel;
+  src: url(../Fonts/GrandHotel.otf);
+}
+@font-face {
+  font-family: cuisine;
+  src: url(../Fonts/cuisine.ttf);
 }
 @font-face {
   font-family: movieFont;
   src: url(../Fonts/movieFont.otf);
 }
 @font-face {
-  font-family: cuisine;
-  src: url(../Fonts/cuisine.ttf);
+  font-family: YellowRabbit;
+  src: url(../Fonts/YellowRabbit\ .otf);
 }
 /* -----Lines 15-54 are for template layout----- */
 .jumbotron {
@@ -17,7 +21,7 @@
   padding: 20px;
 }
 .col-sm-4 {
-  padding-left: 25px;
+padding-left: 25px;
 }
 #movieCard {
   border-style: none;
@@ -36,6 +40,7 @@
 #movieHistory {
   border-style: none;
   text-align: center;
+  background-color: lightcoral;
 }
 .movieHistoryCard {
   margin: 0px;
@@ -48,6 +53,7 @@
 #fareHistory {
   border-style: none;
   text-align: center;
+  background-color: lightcoral;
 }
 .movieList {
   padding: 0px 0px 0px 0px;
@@ -63,63 +69,51 @@
   background-size: cover;
 }
 /* -----Makes the background Image Visable----- */
-.card,
-.card-body {
-  background-color: rgba(255, 255, 255, 0.4);
+/*.card,
+.card-body{
+  background-color: rgba(255, 255, 255, 0);
+}*/
+
+#movieCard,
+#fareCard {
+  background-color: rgba(255, 255, 255, 0);
 }
-/* -----Creates the color transition effect in the header----- */
-.mainHeader {
-  font-family: apples;
-  font-weight: bolder;
-  text-align: center;
-  transform: translateY(-50%);
-  background: linear-gradient(
-    to right,
-    lightcoral,
-    grey,
-    lightcoral,
-    grey,
-    lightcoral
-  );
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-  text-align: center;
-  font-weight: 500;
-  margin-top: 45px;
+.specialRow {
+  background-color: rgba(255, 255, 255, .4);
+  padding-bottom: 356px; /* ----- This takes away the white space----- */
 }
 /* -----Creates the color transition effect in the second section----- */
 .display-4 {
-  font-family: apples;
+  font-family: YellowRabbit;
   font-weight: bolder;
   text-align: center;
+  font-size: 125px;
+  margin-bottom: -75px;
   transform: translateY(-50%);
   background: linear-gradient(
     to right,
     lightblue,
-    black,
+    grey,
     lightblue,
-    black,
+    grey,
     lightblue
   );
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   text-align: center;
   font-weight: 500;
-  margin-top: 45px;
+  margin-top: 110px;
 }
 .secondaryHeader {
   background-color: lightcoral;
 }
 .historyInfo {
-  background-color: lightcoral;
+  background-color: lightcoral !important;
   margin-bottom: 0px;
-}
+  }
+  
 h1 {
   font-size: 4rem;
-}
-.navbar {
-  background-color: lightblue !important;
-  margin-bottom: -50px;
 }
 /* -----Changes the font to these classes and id's ----- */
 .lead,
@@ -128,7 +122,7 @@ h1 {
 #title,
 #releaseDate,
 #synopsis {
-  font-family: movieFont;
+  font-family: grandHotel;
   font-size: 25px;
   font-weight: 900 !important;
 }
@@ -234,7 +228,7 @@ a:hover {
   text-align: center;
   font-weight: bolder;
   font-family: monospace;
-  font-size: x-large;
+  font-size: large;
 }
 /* -----Changes the styling of the checkboxes in the History Info----- */
 .checkbox{
@@ -242,8 +236,7 @@ a:hover {
   color:coral;
 }
 /* -----Changes the font of the History Info----- */
-#movieHistoryText,
-#fareHistoryText{
+h2{
   font-family: cuisine;
 }
 /* -----Changes the styling of the "Results" button----- */
@@ -256,13 +249,9 @@ a:hover {
 .form-control{
   font-family: cuisine;
 }
-/* ----- This takes away the white space----- */
-.specialRow{
-  padding-bottom: 356px;
+.text-responsive {
+  font-size: calc(100% + 1vw + 1vh);
 }
 
-#logo{
-  height: 20px;
-  width: 60px;
-  left: 0;
-}
+
+
