@@ -17,7 +17,7 @@
   padding: 20px;
 }
 .col-sm-4 {
-  padding-left: 0px;
+  padding-left: 25px;
 }
 #movieCard {
   border-style: none;
@@ -259,4 +259,10 @@ a:hover {
 /* ----- This takes away the white space----- */
 .specialRow{
   padding-bottom: 356px;
+}
+
+#logo{
+  height: 20px;
+  width: 60px;
+  left: 0;
 }
