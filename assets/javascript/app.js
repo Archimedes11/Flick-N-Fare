@@ -50,26 +50,34 @@ function fareSearch() {
     //setting the text of the title from the api to display at #recipe-title
     $("#recipe-title").text(response.title);
 
-  /********************************************
-  * Author: Joshua Tower                      *
-  * 6/1/2020                                  *
-  * Ingredients/Directions API Information    *  
-  * Line 45-56                                *
-  * Code Version: Final                       *
-  *********************************************/
+    /********************************************
+     * Author: Joshua Tower                      *
+     * 6/1/2020                                  *
+     * Ingredients/Directions API Information    *
+     * Line 45-56                                *
+     * Code Version: Final                       *
+     *********************************************/
+    //creating variable for response.extendedIngredients
     var ingredients = response.extendedIngredients;
+    //creating variable to hold text and create ul
     var fullRecipeInfo = "<h3>Ingredients</h3> <br> <ul>";
+    //looping through extendedIngredients from the api and updating that info with some list items
     for (i = 0; i < ingredients.length; i++) {
       fullRecipeInfo += "<li>" + ingredients[i].originalString + "</li>";
     }
+    //updating fullRecipeInfo with closing ul adding a break and more text, also adding ordered list
     fullRecipeInfo += "</ul> <br> <h3>Instructions</h3> <br> <ol>";
+    //creating variable for the recipe insturctions to start at the begin of the array
     var directions = response.analyzedInstructions[0].steps;
+    //looping through the array for analyzedInstructions.steps and updating the info with list items
     for (i = 0; i < directions.length; i++) {
       fullRecipeInfo += "<li>" + directions[i].step + "</li>";
     }
+    //updating the fullRecipeInfo by closing out the ordered list
     fullRecipeInfo += "</ol>";
+    //setting the recipe from the api to show at #recipe
     $("#recipe").html(fullRecipeInfo);
-
+    //setting the recipe title to show in localStorage
     localStorage.setItem("recipe", JSON.stringify(response.title));
     //calling the createRecipeHistory function
     createRecipeHistory(recipeCount, recipeTitle);
