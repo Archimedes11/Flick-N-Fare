@@ -10,9 +10,8 @@
     genre as well as an idea for a dinner recipe!!
 
 •If you need help using this app or would like to recieve more information please contact one of our contributors:
-    •Adam Wolff: adamkwolff@hotmail.com
+    •Adam Wolff: adam@adamkwolff.com
     •Codie Mitchell: codie.l.mitchell@gmail.com
-    •Chip Johnson: cjohnson1580@gmail.com
     •Micah Lea: micahslea@gmail.com
 <!-- The people above are responsible for contributing to the website as well as maintaining it. -->
 •API's used in "Flick-N-Fare:
