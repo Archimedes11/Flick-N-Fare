@@ -1,4 +1,4 @@
-# ProjectOne
+# Flick-N-Fare
 <!-----------------------------------FLICK-N-FARE----------------------------------->
 •Purpose:
     Looking for dinner and a movie? LOOK NO FURTHER! Choose your desired movie genre and cuisine type from the drop-down menus below and get a great movie and recipe idea!
