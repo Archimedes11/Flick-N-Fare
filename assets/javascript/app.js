@@ -45,23 +45,42 @@ function fareSearch() {
   };
   //ajax for first search parameter
   $.ajax(settings1).then(function (response) {
+    console.log(response);
     //setting attr src to get the image form api and display it at #farePic
     $("#farePic").attr("src", response.image);
     //setting the text of the title from the api to display at #recipe-title
     $("#recipe-title").text(response.title);
 
-  /********************************************
-  * Author: Joshua Tower                      *
-  * 6/1/2020                                  *
-  * Ingredients/Directions API Information    *  
-  * Line 45-56                                *
-  * Code Version: Final                       *
-  *********************************************/
+    /********************************************
+    * Author: Joshua Tower                      *
+    * 6/1/2020                                  *
+    * Ingredients/Directions API Information    *  
+    * Line 45-56                                *
+    * Code Version: Final                       *
+    *********************************************/
+
+    function capitalizeWords(str) {
+      // Define an array of words not to capitalize
+      var ignore = ['tsp', 'ml', 'g', 'kg', 'lb', 'oz.', 'oz'];
+      return str.split(' ')
+        .map(word => {
+          if (ignore.includes(word.toLowerCase())) {
+            return word; // If the word is in the ignore list, return it unchanged
+          } else {
+            return word.charAt(0).toUpperCase() + word.slice(1); // Otherwise, capitalize it
+          }
+        })
+        .join(' ');
+    }
+
     var ingredients = response.extendedIngredients;
     var fullRecipeInfo = "<h3>Ingredients</h3> <br> <ul>";
     for (i = 0; i < ingredients.length; i++) {
-      fullRecipeInfo += "<li>" + ingredients[i].originalString + "</li>";
+      var ingredient = capitalizeWords(ingredients[i].original);
+      fullRecipeInfo += "<li>" + ingredient + "</li>";
+      console.log(ingredient);
     }
+
     fullRecipeInfo += "</ul> <br> <h3>Instructions</h3> <br> <ol>";
     var directions = response.analyzedInstructions[0].steps;
     for (i = 0; i < directions.length; i++) {
