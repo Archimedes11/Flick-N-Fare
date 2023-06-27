@@ -27,6 +27,22 @@ if (
 }
 //creating variable randomId equal to 0
 var randomId = 0;
+
+//This Function captilizes words unless they are meant to be lowercase.
+function capitalizeWords(str) {
+  // Define an array of words not to capitalize
+  var ignore = ['tsp', 'ml', 'g', 'kg', 'lb', 'oz.', 'oz'];
+  return str.split(' ')
+    .map(word => {
+      if (ignore.includes(word.toLowerCase())) {
+        return word; // If the word is in the ignore list, return it unchanged
+      } else {
+        return word.charAt(0).toUpperCase() + word.slice(1); // Otherwise, capitalize it
+      }
+    })
+    .join(' ');
+}
+
 //creating fareSearch funtion
 function fareSearch() {
   //calling pickFare function
@@ -43,13 +59,14 @@ function fareSearch() {
     timeout: 0,
     headers: {},
   };
+
   //ajax for first search parameter
   $.ajax(settings1).then(function (response) {
     console.log(response);
     //setting attr src to get the image form api and display it at #farePic
     $("#farePic").attr("src", response.image);
     //setting the text of the title from the api to display at #recipe-title
-    $("#recipe-title").text(response.title);
+    $("#recipe-title").text(capitalizeWords(response.title));
 
     /********************************************
     * Author: Joshua Tower                      *
@@ -59,19 +76,7 @@ function fareSearch() {
     * Code Version: Final                       *
     *********************************************/
 
-    function capitalizeWords(str) {
-      // Define an array of words not to capitalize
-      var ignore = ['tsp', 'ml', 'g', 'kg', 'lb', 'oz.', 'oz'];
-      return str.split(' ')
-        .map(word => {
-          if (ignore.includes(word.toLowerCase())) {
-            return word; // If the word is in the ignore list, return it unchanged
-          } else {
-            return word.charAt(0).toUpperCase() + word.slice(1); // Otherwise, capitalize it
-          }
-        })
-        .join(' ');
-    }
+
 
     var ingredients = response.extendedIngredients;
     var fullRecipeInfo = "<h3>Ingredients</h3> <br> <ul>";
