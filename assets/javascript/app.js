@@ -68,15 +68,6 @@ function fareSearch() {
     //setting the text of the title from the api to display at #recipe-title
     $("#recipe-title").text(capitalizeWords(response.title));
 
-    /********************************************
-    * Author: Joshua Tower                      *
-    * 6/1/2020                                  *
-    * Ingredients/Directions API Information    *  
-    * Line 45-56                                *
-    * Code Version: Final                       *
-    *********************************************/
-
-
 
     var ingredients = response.extendedIngredients;
     var fullRecipeInfo = "<h3>Ingredients</h3> <br> <ul>";
