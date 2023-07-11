@@ -3,7 +3,6 @@ var recipeCount = 0;
 var recipeArray = [];
 //creating variable for localStorageRecipeHistoryArray
 var localStorageRecipeHistoryArray = localStorage.getItem("recipelist");
-console.log(localStorageRecipeHistoryArray);
 //creating variable for recipeHistoryArray
 var recipeHistoryArray = [];
 //parsing localStorage for recipe and setting it to recipeHistoryArray
@@ -175,7 +174,6 @@ function pickFare() {
 var movieCount = 0;
 //getting the movielist item from localStorage and setting it equal to localStorageMovieHistoryArray
 var localStorageMovieHistoryArray = localStorage.getItem("movielist");
-console.log(localStorageMovieHistoryArray);
 //creating empty array for movieHistoryArray
 var movieHistoryArray = [];
 //setting movieHistoryArray equal to the parsed localStorageMovieHistoryArray
